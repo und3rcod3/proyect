@@ -1,3 +1,4 @@
+//Hla mundo, salgamos de latam
 <?php
 function strClean($strCadena){
 		$string = preg_replace(['/\s+/','/^\s|\s$/'],[' '],'', $strCadena);
