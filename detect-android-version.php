@@ -1,7 +1,10 @@
 <?php
 function DetectAndroidVersion($let){
     $x = explode(" ", $let);
-    $xx = $x[1];
+//     $xx = $x[1];
+    
+    $nombre_version = "";
+    $version = (string) $x[1];
     
     $versiones = array(
       "1.0"=>"Apple Pie",
@@ -48,6 +51,12 @@ function DetectAndroidVersion($let){
       "11"=>"Once",
       "12"=>"Doce");
   
-    $valor = array_search($xx, $versiones, true);
-        return $valor;
+    if(array_key_exists($version, $versiones)){
+        $nombre_version = $versiones[$version];
+    } else {
+        $nombre_version = ""; // Para valor por defecto
+    }
+    
+    
+    return sprintf("%s (%d)", $nombre_version, (int) $version);
 }
