@@ -19,7 +19,7 @@ $pais = getCountry($ip);
 
 /* ================================================================================================================== */
 $yo = "Jose Luis";
-$count = $con->prepare("SELECT COUNT(id) AS contar FROM my_publication");
+$count = $con->prepare("SELECT COUNT(id) AS contar FROM table1");
 $count->execute();
 $count->store_result();
 if($count->num_rows === 0) exit('No rows');
@@ -31,7 +31,7 @@ $count->fetch();
 
 
 /* ================================================================================================================== */
-$fecha = $con->prepare("SELECT COUNT(id) AS rango FROM my_publication WHERE fecha_i BETWEEN date_add(NOW(), INTERVAL -7 DAY) AND NOW()");
+$fecha = $con->prepare("SELECT COUNT(id) AS rango FROM table1 WHERE column1 BETWEEN date_add(NOW(), INTERVAL -7 DAY) AND NOW()");
 $fecha->execute();
 $fecha->store_result();
 if($fecha->num_rows === 0) exit('No rows');
@@ -43,7 +43,7 @@ $fecha->fetch();
 
 
 /* ================================================================================================================== */
-$stmt = $con->prepare("SELECT * FROM my_publication ORDER BY id DESC");
+$stmt = $con->prepare("SELECT * FROM table1 ORDER BY id DESC");
 $stmt->execute();
 $r = $stmt->get_result();
 $stmt->get_result();
